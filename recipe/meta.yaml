@@ -45,7 +45,7 @@ test:
 about:
   home: https://github.com/horazont/aioxmpp
   summary: Pure-python XMPP library for asyncio
-  license: LGPL-3.0 AND LGPLLR AND GPL-3.0
+  license: LGPL-3.0-only AND LGPLLR AND GPL-3.0-only
   license_file:
     - COPYING.LESSER
     - COPYING.gpl3
