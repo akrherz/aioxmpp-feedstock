@@ -6,20 +6,21 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/aioxmpp-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/aioxmpp-{{ version }}.tar.gz
   sha256: a2299e84f6d61137c6a046e2470aeebd8cd25515c1f3cefd681c322242d8056d
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
-    - python >=3.5
+    - python {{ python_min }}
     - pip
+    - setuptools
   run:
-    - python >=3.5
+    - python >={{ python_min }}
     - aiosasl >=0.3
     - aioopenssl >=0.1
     - babel >=2.3,<3.dev0
@@ -39,11 +40,12 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/horazont/aioxmpp
   summary: Pure-python XMPP library for asyncio
-  license: LGPL-3.0 AND LGPLLR AND GPL-3.0
+  license: LGPL-3.0-only AND LGPLLR AND GPL-3.0-only
   license_file:
     - COPYING.LESSER
     - COPYING.gpl3
