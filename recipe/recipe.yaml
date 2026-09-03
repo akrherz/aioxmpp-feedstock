@@ -34,6 +34,7 @@ requirements:
     - pyopenssl
     - pyasn1
     - pyasn1-modules
+    - pytz
     - tzlocal >=1.2
 
 tests:
